@@ -1,15 +1,102 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# ============================
+# ⚙️ ARCHIVOS GENERADOS (NO EDITABLES)
+# ============================
+
+# Archivos compilados de la app (APK, AAB)
+*.apk
+*.ap_
+*.aab
+
+# Archivos intermedios de la máquina virtual ART/Dalvik
+*.dex
+
+# Archivos compilados de Java
+*.class
+
+# Carpetas de salida generadas automáticamente
+bin/
+gen/
+out/
+release/
+build/
+
+# ============================
+# 🧱 GRADLE Y CONFIGURACIONES LOCALES
+# ============================
+
+# Carpeta de Gradle (descargas, caché)
+.gradle/
+
+# Archivo de configuración local (rutas del SDK, etc.)
 local.properties
+
+# ============================
+# 🧠 ANDROID STUDIO / INTELLIJ
+# ============================
+
+# Carpeta de configuración de Android Studio
+.idea/
+# (opcional) conserva las reglas de estilo del equipo
+!.idea/codeStyles/
+
+# Archivos de módulo de IntelliJ
+*.iml
+
+# ============================
+# 💾 CÓDIGO NATIVO (C/C++)
+# ============================
+
+# Builds de NDK o CMake
+.cxx/
+.externalNativeBuild/
+
+# ============================
+# 📜 LOGS, REPORTES Y TEMPORALES
+# ============================
+
+# Archivos de log
+*.log
+
+# Carpeta de capturas (screenshots)
+captures/
+
+# Archivos temporales de navegación
+.navigation/
+
+# Archivos de cobertura o reportes
+reports/
+*.ec
+
+# ============================
+# 🔐 SEGURIDAD Y CLAVES
+# ============================
+
+# Archivos de keystore (no deben subirse nunca)
+*.jks
+*.keystore
+
+# ============================
+# ☁️ SERVICIOS Y CONFIGURACIONES EXTERNAS
+# ============================
+
+# Configuración de Firebase / Google Services
+# (descomenta si no quieres subirla)
+# google-services.json
+
+# ============================
+# 🖥️ ARCHIVOS DEL SISTEMA OPERATIVO
+# ============================
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# ============================
+# 🧹 OTROS ARCHIVOS TEMPORALES
+# ============================
+
+# Archivos swap o de respaldo
+*.swp
+*~
