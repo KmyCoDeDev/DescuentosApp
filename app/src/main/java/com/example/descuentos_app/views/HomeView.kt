@@ -12,10 +12,16 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.example.descuentos_app.components.MainButton
+import com.example.descuentos_app.components.MainTextField
 import com.example.descuentos_app.components.SpaceH
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -40,9 +46,22 @@ fun ContentHomeView(paddingValues: PaddingValues) {
             .padding(paddingValues)
             .padding(10.dp)
             .fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
+        //verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "Hola")
+        var precio by remember { mutableStateOf("") }
+        var descuento by remember { mutableStateOf("") }
+
+        MainTextField(value = precio, onValueChange = { precio = it }, label = "Precio")
+        SpaceH()
+        MainTextField(value = descuento, onValueChange = { descuento = it }, label = "Descuento%")
+        SpaceH(10.dp)
+        MainButton(text = "Generar descuento") {
+
+        }
+        SpaceH()
+        MainButton(text = "Limpiar", color = Color.Red) {
+
+        }
     }
 }
