@@ -1,6 +1,5 @@
 package com.example.descuentos_app.views
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -23,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import com.example.descuentos_app.components.MainButton
 import com.example.descuentos_app.components.MainTextField
 import com.example.descuentos_app.components.SpaceH
+import com.example.descuentos_app.components.TwoCards
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -51,6 +51,15 @@ fun ContentHomeView(paddingValues: PaddingValues) {
     ) {
         var precio by remember { mutableStateOf("") }
         var descuento by remember { mutableStateOf("") }
+        var precioDescuento by remember { mutableStateOf(0.0) }
+        var totalDescuento by remember { mutableStateOf(0.0) }
+
+        TwoCards(
+            "Total",
+            totalDescuento,
+            "Descuento",
+            precioDescuento
+        )
 
         MainTextField(value = precio, onValueChange = { precio = it }, label = "Precio")
         SpaceH()
