@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.descuentos_app.components.Alert
 import com.example.descuentos_app.components.MainButton
 import com.example.descuentos_app.components.MainTextField
 import com.example.descuentos_app.components.SpaceH
@@ -55,6 +56,7 @@ fun ContentHomeView(paddingValues: PaddingValues) {
         var descuento by remember { mutableStateOf("") }
         var precioDescuento by remember { mutableStateOf(0.0) }
         var totalDescuento by remember { mutableStateOf(0.0) }
+        var showAlert by remember { mutableStateOf(false) }
 
         TwoCards(
             "Total",
@@ -68,12 +70,27 @@ fun ContentHomeView(paddingValues: PaddingValues) {
         MainTextField(value = descuento, onValueChange = { descuento = it }, label = "Descuento%")
         SpaceH(10.dp)
         MainButton(text = "Generar descuento") {
-            precioDescuento = calcularPrecio(precio.toDouble(), descuento.toDouble())
-            totalDescuento = calcularDescuento(precio.toDouble(), descuento.toDouble())
+            if (precio != "" && descuento != "") {
+                precioDescuento = calcularPrecio(precio.toDouble(), descuento.toDouble())
+                totalDescuento = calcularDescuento(precio.toDouble(), descuento.toDouble())
+            } else {
+                showAlert = true
+            }
         }
         SpaceH()
         MainButton(text = "Limpiar", color = Color.Red) {
+            precio = ""
+            descuento = ""
+            precioDescuento = 0.0
+            totalDescuento = 0.0
+        }
 
+        if (showAlert) {
+            Alert(
+                "Alerta",
+                "Debes introducir un precio y/o descuento",
+                "Aceptar",
+                { showAlert = false }) { }
         }
     }
 }
